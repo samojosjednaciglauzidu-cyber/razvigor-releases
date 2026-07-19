@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  WinSparkle update feed for the Razvigor Windows app.
+  The app reads this file from the raw GitHub URL of this repo's main branch
+  (see kAppcastUrl in lib/providers/update_provider.dart, in the main razvigor repo).
+
+  Release process: add a NEW <item> ABOVE the previous ones for every desktop
+  release, fill in sparkle:dsaSignature with the output of
+  `dart run auto_updater:sign_update installer/output/RazvigorSetup-X.Y.Z.exe`
+  (run from the main razvigor repo checkout) and `length` with the installer
+  size in bytes. See docs/release-process.md in the main razvigor repo.
+-->
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>Razvigor</title>
+    <description>Razvigor desktop updates</description>
+    <language>en</language>
+    <item>
+      <title>Razvigor 1.0.0</title>
+      <pubDate>Fri, 17 Jul 2026 12:00:00 +0000</pubDate>
+      <enclosure
+        url="https://github.com/samojosjednaciglauzidu-cyber/razvigor-releases/releases/download/v1.0.0/RazvigorSetup-1.0.0.exe"
+        sparkle:version="1.0.0"
+        sparkle:os="windows"
+        sparkle:dsaSignature="REPLACE_WITH_SIGN_UPDATE_OUTPUT"
+        length="0"
+        type="application/octet-stream" />
+    </item>
+  </channel>
+</rss>
